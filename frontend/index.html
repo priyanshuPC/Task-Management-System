@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>Task Management System</h1>
+            <div id="user-info" class="hidden">
+                <span id="username-display"></span>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="/dashboard" data-link>Dashboard</a></li>
+                        <li><a href="/tasks" data-link>Tasks</a></li>
+                        <li><a href="/profile" data-link>Profile</a></li>
+                    </ul>
+                </nav>
+                <button id="logout-btn">Logout</button>
+            </div>
+        </header>
+
+        <div id="main-content">
+            <!-- Authentication View -->
+            <div id="auth-container" class="auth-container">
+                <div class="auth-tabs">
+                    <button id="login-tab" class="active">Login</button>
+                    <button id="register-tab">Register</button>
+                </div>
+                
+                <div id="login-form" class="auth-form">
+                    <h2>Login</h2>
+                    <div class="form-group">
+                        <label for="login-username">Username</label>
+                        <input type="text" id="login-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" required>
+                    </div>
+                    <button id="login-btn" type="submit">Login</button>
+                    <div id="login-error" class="error-message"></div>
+                </div>
+                
+                <div id="register-form" class="auth-form hidden">
+                    <h2>Register</h2>
+                    <div class="form-group">
+                        <label for="register-username">Username</label>
+                        <input type="text" id="register-username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" required>
+                    </div>
+                    <button id="register-btn" type="submit">Register</button>
+                    <div id="register-error" class="error-message"></div>
+                    <div id="register-success" class="success-message"></div>
+                </div>
+            </div>
+
+            <!-- Dashboard View -->
+            <div id="dashboard-view" class="main-view hidden">
+                <div class="dashboard">
+                    <h2>Welcome to Task Management System</h2>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <h3>Total Tasks</h3>
+                            <p id="total-tasks">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>To-Do</h3>
+                            <p id="todo-tasks">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>In Progress</h3>
+                            <p id="in-progress-tasks">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Done</h3>
+                            <p id="done-tasks">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Blockers</h3>
+                            <p id="blocker-tasks">0</p>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Overdue Tasks</h3>
+                            <p id="overdue-tasks">0</p>
+                        </div>
+                    </div>
+                    <div class="dashboard-actions">
+                        <a href="/tasks" class="btn primary-btn" data-link>View All Tasks</a>
+                        <button id="dashboard-add-task-btn" class="btn">Add New Task</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tasks View -->
+            <div id="tasks-view" class="main-view hidden">
+                <div class="task-container">
+                    <div class="task-header">
+                        <h2>My Tasks</h2>
+                        <button id="new-task-btn">+ Add Task</button>
+                    </div>
+                    
+                    <div class="task-filters">
+                        <div class="search-group">
+                            <input type="text" id="task-search" placeholder="Search tasks by name...">
+                            <button id="search-btn"><i class="fas fa-search"></i>Search</button>
+                        </div>
+                        <div class="filter-group">
+                            <label for="status-filter">Status</label>
+                            <select id="status-filter">
+                                <option value="ALL">All</option>
+                                <option value="TODO">To-Do</option>
+                                <option value="IN_PROGRESS">In Progress</option>
+                                <option value="DONE">Done</option>
+                                <option value="BLOCKER">Blocker</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label for="priority-filter">Priority</label>
+                            <select id="priority-filter">
+                                <option value="ALL">All</option>
+                                <option value="LOW">Low</option>
+                                <option value="MEDIUM">Medium</option>
+                                <option value="HIGH">High</option>
+                            </select>
+                        </div>
+                        <div class="filter-buttons">
+                            <button id="filter-btn">Apply Filters</button>
+                            <button id="show-overdue-btn">Show Overdue</button>
+                        </div>
+                    </div>
+
+                    <div id="tasks-list" class="tasks-list">
+                        <!-- Tasks will be loaded here dynamically -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile View -->
+            <div id="profile-view" class="main-view hidden">
+                <div class="profile-container">
+                    <h2>User Profile</h2>
+                    <div class="profile-info">
+                        <div class="info-group">
+                            <label>Username</label>
+                            <div class="info-content">
+                                <p id="profile-username"></p>
+                                <button class="edit-btn" id="edit-username-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                        <div class="info-group">
+                            <label>Email</label>
+                            <div class="info-content">
+                                <p id="profile-email"></p>
+                                <button class="edit-btn" id="edit-email-btn">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                            </div>
+                        </div>
+                        <div class="info-group">
+                            <label>Account Created</label>
+                            <p id="profile-created"></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Profile Modal -->
+                <div id="edit-profile-modal" class="modal hidden">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
+                        <h2 id="edit-profile-title">Edit Profile</h2>
+                        <form id="edit-profile-form">
+                            <div class="form-group">
+                                <label for="edit-profile-field">New Value</label>
+                                <input type="text" id="edit-profile-field" required>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" id="save-profile-btn">Save</button>
+                                <button type="button" id="cancel-profile-btn">Cancel</button>
+                            </div>
+                        </form>
+                        <div id="edit-profile-error" class="error-message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="task-form-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2 id="task-form-title">Add New Task</h2>
+                <form id="task-form">
+                    <input type="hidden" id="task-id">
+                    <div class="form-group">
+                        <label for="task-title">Title</label>
+                        <input type="text" id="task-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-description">Description</label>
+                        <textarea id="task-description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-status">Status</label>
+                        <select id="task-status">
+                            <option value="TODO">To-Do</option>
+                            <option value="IN_PROGRESS">In Progress</option>
+                            <option value="DONE">Done</option>
+                            <option value="BLOCKER">Blocker</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-priority">Priority</label>
+                        <select id="task-priority">
+                            <option value="LOW">Low</option>
+                            <option value="MEDIUM">Medium</option>
+                            <option value="HIGH">High</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="task-due-date">Due Date</label>
+                        <input type="date" id="task-due-date" required>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="save-task-btn">Save</button>
+                        <button type="button" id="cancel-task-btn">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/router.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/tasks.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/profile.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

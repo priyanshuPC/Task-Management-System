@@ -1,0 +1,15 @@
+com\taskmanagement\tms\auth\dto\JwtResponse.class
+com\taskmanagement\tms\auth\dto\MessageResponse.class
+com\taskmanagement\tms\auth\security\services\UserDetailsImpl.class
+com\taskmanagement\tms\auth\repository\UserRepository.class
+com\taskmanagement\tms\auth\security\services\UserDetailsServiceImpl.class
+com\taskmanagement\tms\auth\model\User.class
+com\taskmanagement\tms\auth\security\jwt\AuthEntryPointJwt.class
+com\taskmanagement\tms\auth\AuthServiceApplication.class
+com\taskmanagement\tms\auth\controller\TestController.class
+com\taskmanagement\tms\auth\dto\SignupRequest.class
+com\taskmanagement\tms\auth\security\jwt\JwtUtils.class
+com\taskmanagement\tms\auth\dto\LoginRequest.class
+com\taskmanagement\tms\auth\security\jwt\AuthTokenFilter.class
+com\taskmanagement\tms\auth\security\WebSecurityConfig.class
+com\taskmanagement\tms\auth\controller\AuthController.class

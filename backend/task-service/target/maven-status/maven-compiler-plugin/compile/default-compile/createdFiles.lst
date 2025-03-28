@@ -1,0 +1,11 @@
+com\taskmanagement\tms\task\controller\DashboardController.class
+com\taskmanagement\tms\task\model\Task.class
+com\taskmanagement\tms\task\dto\TaskResponse.class
+com\taskmanagement\tms\task\model\TaskStatus.class
+com\taskmanagement\tms\task\controller\TaskController.class
+com\taskmanagement\tms\task\dto\TaskSummary.class
+com\taskmanagement\tms\task\TaskServiceApplication.class
+com\taskmanagement\tms\task\dto\TaskRequest.class
+com\taskmanagement\tms\task\model\TaskPriority.class
+com\taskmanagement\tms\task\repository\TaskRepository.class
+com\taskmanagement\tms\task\security\jwt\JwtUtils.class

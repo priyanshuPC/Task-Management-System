@@ -1,0 +1,11 @@
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\dto\TaskRequest.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\model\TaskStatus.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\dto\TaskResponse.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\repository\TaskRepository.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\security\jwt\JwtUtils.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\model\TaskPriority.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\controller\TaskController.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\model\Task.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\dto\TaskSummary.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\controller\DashboardController.java
+C:\Users\Priyanshu Chaurasiya\Desktop\capstone_1\Task-Management-System\backend\task-service\src\main\java\com\taskmanagement\tms\task\TaskServiceApplication.java
